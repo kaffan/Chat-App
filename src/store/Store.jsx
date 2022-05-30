@@ -1,12 +1,14 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import MainReducer from "../Reducer/MainReducer";
 import SecondReducer from "../Reducer/SecondReducer";
+import ThirdReducer from "../Reducer/ThirdReducer";
 
 const Store = configureStore({
     reducer: 
     {
       list:MainReducer,
       currentUser: SecondReducer,
+      isChat: ThirdReducer
     },
     middleware: (getDefaultMiddleware)=>getDefaultMiddleware({
         serializableCheck:false,        

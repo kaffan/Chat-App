@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// import Store from "../store/Store";
 //action structure {type:"",obj:{}}
+// const currentUser = Store.getState().currentUser;
 const MainReducer = createSlice({
     name:"list",
     initialState: [],
@@ -18,14 +19,19 @@ const MainReducer = createSlice({
         },
         AddMsg(state, action)
         {
-            const id = state.findIndex(ele=>ele.name===action.payload.name);
-            state = state[id].msg.push({message: action.payload.msg, date: action.payload.date});
+            const id = state.findIndex(ele=>ele.name===action.payload.currentUser.name);
+            state = state[id].msg.push(action.payload.newMessage);
         },
         DeleteMsg(state, action)
         {
             const id = state.findIndex(ele=>ele.name===action.payload.name);
             const i = state[id].msg.findIndex(ele=>ele.message===action.payload.message);
             state[id].msg = state[id].msg.filter((_,ind)=>ind!==i);
+        },
+        StarUnstar(state, action)
+        {
+            state.starred = action.payload;
+            return state;
         }
     }
 });

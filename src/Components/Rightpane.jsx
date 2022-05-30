@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import HeadPart from "./Rightpane/HeadPart";
-import BodyPart from "./Rightpane/HeadPart";
-import FooterPart from "./Rightpane/HeadPart";
+import BodyPart from "./Rightpane/BodyPart";
+import FooterPart from "./Rightpane/FooterPart";
 
-const whenNoUsers = () =>
+const WhenNoUsers = () =>
 {
     return(
         <>
@@ -15,16 +15,18 @@ const whenNoUsers = () =>
     );
 }
 
-const renderLatestUser = (props) =>
+const RenderLatestUser = (props) =>
 {
-    const users = props.users;
-    const latestUser = users[users.length-1];
+    const users = props.state.list;
+    console.log(users);
+    const latestUser = props.state.currentUser;
+    console.log(latestUser);
     return(
         <>
-          <div style={{display:"flex",flexDirection:"column"}}>
-              <HeadPart user={latestUser} sx={{flexGrow:"2"}}></HeadPart>
-              <BodyPart user={latestUser} sx={{flexGrow:"8"}}></BodyPart>
-              <FooterPart user={latestUser} sx={{flexGrow:"2"}}></FooterPart>
+          <div style={{display:"flex",flexDirection:"column",height:"100%"}}>
+              <HeadPart user={latestUser} ></HeadPart>
+              <BodyPart user={latestUser} sx={{height:"80%"}}></BodyPart>
+              <FooterPart user={latestUser} sx={{height:"20%"}}></FooterPart>
           </div>
         </>
     );
@@ -32,10 +34,11 @@ const renderLatestUser = (props) =>
 const Rightpane = () =>
 {
     const users = useSelector(state=>state);
+    console.log(users);
     return(
         <>
           <div style={{height:"92vh", backgroundColor:"#F5F5F5"}}>
-             {(users.length) ? <whenNoUsers /> : <renderLatestUser users={users} />}    
+             {(users.list.length===0) ? <WhenNoUsers /> : <RenderLatestUser state={users} />}    
           </div>
         </>
     );

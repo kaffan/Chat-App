@@ -1,8 +1,13 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import MainReducer from "../Reducer/MainReducer";
+import SecondReducer from "../Reducer/SecondReducer";
 
 const Store = configureStore({
-    reducer: MainReducer,
+    reducer: 
+    {
+      list:MainReducer,
+      currentUser: SecondReducer,
+    },
     middleware: (getDefaultMiddleware)=>getDefaultMiddleware({
         serializableCheck:false,        
     })

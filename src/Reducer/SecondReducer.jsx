@@ -20,7 +20,7 @@ const SecondReducer = createSlice({
         {
             state.msg.map((obj,i)=>
             {
-                if(obj.message===action.payload.message)
+                if(obj.time===action.payload.time)
                 {
                     state.msg[i].starred = !(state.msg[i].starred);
                 }
@@ -29,7 +29,7 @@ const SecondReducer = createSlice({
         },
         DeleteMssg(state,action)
         {
-            const i = state.msg.findIndex((ele)=>ele.message===action.payload.message);
+            const i = state.msg.findIndex((ele)=>ele.time===action.time);
             state.msg = state.msg.splice(i,i);
             return state;
         }

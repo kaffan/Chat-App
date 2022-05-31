@@ -25,13 +25,13 @@ const MainReducer = createSlice({
         DeleteMsg(state, action)
         {
             const id = state.findIndex(ele=>ele.name===action.payload.user.name);
-            const i = state[id].msg.findIndex(ele=>ele.message===action.payload.usermsg.message);
+            const i = state[id].msg.findIndex(ele=>ele.time===action.payload.usermsg.time);
             state[id].msg.splice(i,i);
         },
         StarUnstar(state, action)
         {
             const id = state.findIndex(ele=>ele.name===action.payload.user.name);
-            const i = state[id].msg.findIndex(ele=>ele.message===action.payload.usermsg.message);
+            const i = state[id].msg.findIndex(ele=>ele.time===action.payload.usermsg.time);
             state[id].msg[i].starred = !(state[id].msg[i].starred);
         }
     }

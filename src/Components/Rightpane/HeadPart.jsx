@@ -12,9 +12,9 @@ const HeadPart = (props) =>
     function stringAvatar(name) {
         name = name.replace(/^\s+|\s+$/gm,'');
         const firstName = name.split(' ')[0][0];
-        const lastName = name.split(' ')[1][0];
+        const lastName = name.split(' ')[1];
         return {
-          children: `${firstName}${(lastName) ? lastName : ''}`,
+          children: `${firstName}${(lastName) ? lastName[0] : ''}`,
         };
       }
     const isChat = useSelector(state=>state.isChat);

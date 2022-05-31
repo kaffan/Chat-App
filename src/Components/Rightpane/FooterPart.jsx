@@ -16,7 +16,7 @@ const FooterPart = () =>
             let message = inputEle.value;
             inputEle.value="";
             let date = new Date();
-            const options = {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}
+            const options = {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}
             console.log(date.toLocaleString('en-US',options));
             const [dat,time] = date.toLocaleString('en-US',options).split(',');
             const newMessage = {

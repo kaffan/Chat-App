@@ -10,8 +10,11 @@ const NewUser = (props) =>
     const user = props.obj;
     console.log(user);
     function stringAvatar(name) {
+        name = name.replace(/^\s+|\s+$/gm,'');
+        const firstName = name.split(' ')[0];
+        const lastName = name.split(' ')[1];
         return {
-          children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+          children: `${firstName}${(lastName) ? lastName : ''}`,
         };
       }
       const SmallAvatar = styled(Badge)(({ theme }) => ({

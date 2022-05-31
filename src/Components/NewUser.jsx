@@ -11,10 +11,17 @@ const NewUser = (props) =>
     console.log(user);
     function stringAvatar(name) {
         name = name.replace(/^\s+|\s+$/gm,'');
+<<<<<<< HEAD
         const firstName = name.split(' ')[0][0];
         const lastName = name.split(' ')[1];
         return {
           children: `${firstName}${(lastName) ? lastName[0] : ''}`,
+=======
+        const firstName = name.split(' ')[0];
+        const lastName = name.split(' ')[1];
+        return {
+          children: `${firstName}${(lastName) ? lastName : ''}`,
+>>>>>>> 8b75383 (last commit)
         };
       }
       const SmallAvatar = styled(Badge)(({ theme }) => ({

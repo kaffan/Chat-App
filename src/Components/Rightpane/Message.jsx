@@ -16,7 +16,7 @@ const Message = (props) =>
         setDisp("none");  
     }
     const currentUser = useSelector(state=>state.currentUser);
-    const thismsgid = currentUser.msg.findIndex((obj)=>obj.message===usermsg.message);
+    const thismsgid = currentUser.msg.findIndex((obj)=>obj.time===usermsg.time);
     const isStarred = currentUser.msg[thismsgid].starred;
     console.log(isStarred);
     return(

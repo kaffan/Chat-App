@@ -30,7 +30,12 @@ const SecondReducer = createSlice({
         DeleteMssg(state,action)
         {
             const i = state.msg.findIndex((ele)=>ele.time===action.payload.time);
+<<<<<<< HEAD
             state.msg.splice(i,1);
+=======
+            state.msg = state.msg.splice(i,i);
+            return state;
+>>>>>>> 3d62f7a (last commit)
         }
     }
 });

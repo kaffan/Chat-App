@@ -11,8 +11,8 @@ const HeadPart = (props) =>
     console.log(user);
     function stringAvatar(name) {
         name = name.replace(/^\s+|\s+$/gm,'');
-        const firstName = name.split(' ')[0];
-        const lastName = name.split(' ')[1];
+        const firstName = name.split(' ')[0][0];
+        const lastName = name.split(' ')[1][0];
         return {
           children: `${firstName}${(lastName) ? lastName : ''}`,
         };

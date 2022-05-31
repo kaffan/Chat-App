@@ -26,13 +26,16 @@ const MainReducer = createSlice({
         {
             const id = state.findIndex(ele=>ele.name===action.payload.user.name);
             const i = state[id].msg.findIndex(ele=>ele.time===action.payload.usermsg.time);
-            state[id].msg.splice(i,i);
+            // state[id].msg.findIndex((ele)=>ele.time!==action.payload.usermsg.time);
+            state[id].msg.splice(i,1);
         },
         StarUnstar(state, action)
         {
             const id = state.findIndex(ele=>ele.name===action.payload.user.name);
             const i = state[id].msg.findIndex(ele=>ele.time===action.payload.usermsg.time);
-            state[id].msg[i].starred = !(state[id].msg[i].starred);
+            console.log(i);
+            state[id].msg[i] = {...state[id].msg[i], starred:!(state[id].msg[i].starred)};
+            return state
         }
     }
 });

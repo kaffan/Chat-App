@@ -29,9 +29,8 @@ const SecondReducer = createSlice({
         },
         DeleteMssg(state,action)
         {
-            const i = state.msg.findIndex((ele)=>ele.time===action.time);
-            state.msg = state.msg.splice(i,i);
-            return state;
+            const i = state.msg.findIndex((ele)=>ele.time===action.payload.time);
+            state.msg.splice(i,1);
         }
     }
 });
